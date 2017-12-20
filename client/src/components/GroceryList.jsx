@@ -8,20 +8,6 @@ const GroceryList = (props) => (
   </div>
 )
 
-// class GroceryList extends React.Component {
-
-// 	constructor(props) {
-// 		super(props)
-// 	}
-
-// 	render() {
-// 		console.log(this.props.list)
-// 		return (
-// 			this.props.list[0]
-// 			)
-// 	}
-
-// }
 
 export default GroceryList;
 
