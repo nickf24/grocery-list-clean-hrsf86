@@ -20,11 +20,33 @@ class App extends React.Component {
   	//debugger;
   	var flag = true; 
   	var grocList = this.state.list.groceryList;
-  	console.log(grocList)
-  	//debugger;
+  	debugger;
   	for (var i = 0; i < grocList.length; i++) {
+  		var index = i;
   	  if (grocList[i].description === groceryObj.description) {
   	  	//debugger;
+  	  	// update the quantity property of grocList[i]
+  	  	this.setState((prevState) => {
+  	  	  var prevList = prevState.list.groceryList;
+  	  	  var matchedEntry = prevState.list.groceryList[index - 1];
+  	  	  console.log('matched entry is', matchedEntry)
+  	  	  console.log('previous list is', prevList)
+  	  	  var prevListClone = prevList.slice(0, prevList.length);
+  	  	  prevListClone.splice(index, 1);
+  	  	  var newQuantity = Number(matchedEntry.quantity) + Number(groceryObj.quantity);
+  	  	  var newNode = matchedEntry;
+  	  	  newNode.quantity = newQuantity;
+  	  	  // insert new node into prevListClone
+  	  	  var backHalf = prevListClone.slice(index-2, prevListClone.length)
+  	  	  prevListClone = prevListClone.slice(0, index - 2).concat(newNode);
+  	  	  prevListClone = prevListClone.concat(backHalf);
+  	  	  {list: prevListClone}
+  	  	  console.log(prevListClone)
+  	  	  //console.log(newQuantity)
+  	  	  console.log(prevListClone)
+
+  	  	});
+
   	  	console.log('made it here')
   	  //this.state.list.groceryList[i].quantity = this.state.list.groceryList[i].quantity + groceryObj.quantity;
   	  	flag = false;
