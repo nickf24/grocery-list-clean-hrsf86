@@ -13,3 +13,11 @@ body {
 .groceries {
   margin: 10px;
 }
+
+.finished {
+  text-decoration: line-through;
+}
+
+.normal {
+	
+}
